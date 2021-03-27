@@ -10,7 +10,7 @@ void ft_print_comb(void){
                 write(1,&j,1);
                 write(1,&k,1);
                 if(i=='7'&&j=='8'&&k=='9') return;
-                write(1,", ",3);
+                write(1,", ",2);
             }
         }
     }
