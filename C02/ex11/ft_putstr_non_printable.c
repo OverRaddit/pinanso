@@ -23,7 +23,7 @@ void	ft_print_hexa(char c)
 	ft_putchar(c / 16 + '0');
 	if (c % 16 < 10)
 	{
-		ft_putchar(c % 16);
+		ft_putchar(c % 16 + '0');
 	}
 	else
 	{
