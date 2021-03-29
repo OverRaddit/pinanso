@@ -43,21 +43,17 @@ void	ft_putnbr(int nb)
 	}
 }
 
-void	ft_print_combn(int n)
+void	ft_print_number(int n)
 {
-	int i;
 	int j;
 	int k;
 
-	if (n == count)
-	{
-		j = 0;
+	j = 0;
 		while (j < n)
 		{
 			ft_putnbr(arr[j]);
 			j++;
 		}
-
 		k = n - 1;
 		while (k >= 0)
 		{
@@ -69,8 +65,17 @@ void	ft_print_combn(int n)
 			k--;
 		}
 		return ;
-	}
+}
 
+void	ft_print_combn(int n)
+{
+	int i;
+
+	if (n == count)
+	{
+		ft_print_number(n);
+		return;
+	}
 	i = 0;
 	while (i <= 9)
 	{
@@ -82,12 +87,11 @@ void	ft_print_combn(int n)
 			count--;
 			visited[i] = false;
 		}
-
 		i++;
 	}
 }
 
 int main() {
-	ft_print_combn(5);
+	ft_print_combn(9);
 	return 0;
 }
