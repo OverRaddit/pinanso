@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 15:54:27 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 23:14:55 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/29 19:18:47 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/29 19:18:47 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		ft_strlen(char *str)
+char	*ft_strcapitalize(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
+		if ((i == 0 ||
+		str[i - 1] == ' ' || str[i - 1] == '+' || str[i - 1] == '-')
+		&& (str[i] >= 97 && str[i] <= 122))
+		{
+			str[i] = str[i] - 32;
+		}
+		else if (str[i] >= 65 && str[i] <= 90)
+		{
+			str[i] = str[i] + 32;
+		}
 		i++;
 	}
-	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
+	return (str);
 }

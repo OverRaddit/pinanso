@@ -14,9 +14,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int		count = 0;
-bool	visited[10] = {false};
-int		arr[9];
+int		g_count = 0;
+bool	g_visited[10] = {false};
+int		g_arr[9];
 
 void	ft_putchar(char c)
 {
@@ -49,49 +49,44 @@ void	ft_print_number(int n)
 	int k;
 
 	j = 0;
-		while (j < n)
+	while (j < n)
+	{
+		ft_putnbr(g_arr[j]);
+		j++;
+	}
+	k = n - 1;
+	while (k >= 0)
+	{
+		if (g_arr[k] != k + 10 - n)
 		{
-			ft_putnbr(arr[j]);
-			j++;
+			write(1, ", ", 2);
+			return ;
 		}
-		k = n - 1;
-		while (k >= 0)
-		{
-			if (arr[k] != k + 10 - n)
-			{
-				write(1, ", ", 2);
-				return ;
-			}
-			k--;
-		}
-		return ;
+		k--;
+	}
+	return ;
 }
 
 void	ft_print_combn(int n)
 {
 	int i;
 
-	if (n == count)
+	if (n == g_count)
 	{
 		ft_print_number(n);
-		return;
+		return ;
 	}
 	i = 0;
 	while (i <= 9)
 	{
-		if (!visited[i] && (count == 0 || i > arr[count - 1]))
+		if (!g_visited[i] && (g_count == 0 || i > g_arr[g_count - 1]))
 		{
-			arr[count++] = i;
-			visited[i] = true;
+			g_arr[g_count++] = i;
+			g_visited[i] = true;
 			ft_print_combn(n);
-			count--;
-			visited[i] = false;
+			g_count--;
+			g_visited[i] = false;
 		}
 		i++;
 	}
-}
-
-int main() {
-	ft_print_combn(9);
-	return 0;
 }
