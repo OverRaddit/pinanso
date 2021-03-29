@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 14:34:51 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/27 14:34:51 by gshim            ###   ########.fr       */
+/*   Updated: 2021/03/28 13:54:59 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_print_alphabet(void)
+void	ft_print_alphabet(void)
 {
-    write(1, "abcdefghijklmnopqrstuvwxyz", 27);
-}
-
-int    main(void){
-    ft_print_alphabet();
-    return (0);
+	write(1, "abcdefghijklmnopqrstuvwxyz", 27);
 }

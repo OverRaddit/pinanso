@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_revserse_alphabet.c                       :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 13:55:29 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 13:55:53 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/28 15:46:25 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 15:47:14 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_reverse_alphabet(void)
+void	ft_ft(int *nbr)
 {
-	write(1, "zyxwvutsrqponmlkjihgfedcba", 27);
+	*nbr = 42;
 }

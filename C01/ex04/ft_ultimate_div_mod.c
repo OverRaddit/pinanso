@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_revserse_alphabet.c                       :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 13:55:29 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 13:55:53 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/28 15:52:46 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 16:25:35 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_reverse_alphabet(void)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	write(1, "zyxwvutsrqponmlkjihgfedcba", 27);
+	int temp;
+
+	temp = *a / *b;
+	*b = *a % *b;
+	*a = temp;
 }

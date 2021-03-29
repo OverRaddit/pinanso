@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 14:35:32 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/27 14:35:32 by gshim            ###   ########.fr       */
+/*   Updated: 2021/03/28 14:07:45 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_numbers(void){
-    write(1,"0123456789",11);
+void	ft_print_numbers(void)
+{
+	write(1, "0123456789", 11);
 }

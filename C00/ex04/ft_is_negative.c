@@ -1,8 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/28 13:56:14 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 14:10:02 by gshim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-void ft_is_negative(int n){
-    if(n < 0){
-        write(1,"N",2);
-    } else {
-        write(1,"P",2);
-    }
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_is_negative(int n)
+{
+	if (n < 0)
+	{
+		ft_putchar('N');
+	}
+	else
+	{
+		ft_putchar('P');
+	}
 }

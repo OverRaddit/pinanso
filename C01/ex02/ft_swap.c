@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_revserse_alphabet.c                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 13:55:29 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 13:55:53 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/28 15:49:09 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 15:49:53 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_reverse_alphabet(void)
+void	ft_swap(int *a, int *b)
 {
-	write(1, "zyxwvutsrqponmlkjihgfedcba", 27);
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

@@ -3,31 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 20:43:08 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/27 20:43:08 by gshim            ###   ########.fr       */
+/*   Updated: 2021/03/28 22:27:26 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_putnbr(int nb)
+void	ft_putchar(char c)
 {
-    int i=0;
-    char buf[11];
-    while(nb>0)
-    {
-        buf[i++] = (char)(nb%10+48);
-        nb = nb/10;
-    }
-    while(i>=0)
-    {
-        write(1,&buf[--i],1);
-    }
-    
+	write(1, &c, 1);
 }
 
-int main(){
-    ft_putnbr(1147483647);
+void	ft_putnbr(int nb)
+{
+	int		i;
+	char	buf[11];
+
+	if (nb < 0)
+	{
+		if (nb == -2147483648)
+		{
+			write(1, "-2147483648", 11);
+			return ;
+		}
+		ft_putchar('-');
+		nb = nb * -1;
+	}
+	i = -1;
+	if (nb == 0)
+		ft_putchar('0');
+	while (nb > 0)
+	{
+		buf[++i] = (char)(nb % 10 + 48);
+		nb = nb / 10;
+	}
+	while (i >= 0)
+	{
+		ft_putchar(buf[i--]);
+	}
 }

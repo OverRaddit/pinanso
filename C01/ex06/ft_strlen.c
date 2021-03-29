@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 00:41:26 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 14:32:53 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/28 15:57:57 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 23:48:00 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_print_comb2(void)
+int	ft_strlen(char *str)
 {
 	int i;
-	int j;
 
-	i = -1;
-	while (++i <= 99)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		j = i;
-		while (++j <= 99)
-		{
-			ft_putchar((char)(i / 10) + (char)48);
-			ft_putchar((char)(i / 10) + (char)48);
-			ft_putchar(' ');
-			ft_putchar((char)(j / 10) + (char)48);
-			ft_putchar((char)(j % 10) + (char)48);
-			if (i == 98 && j == 99)
-				return ;
-			write(1, ", ", 2);
-		}
+		i++;
 	}
+	return (i);
 }
