@@ -3,63 +3,86 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 01:13:43 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/30 01:13:43 by gshim            ###   ########.fr       */
+/*   Updated: 2021/03/30 22:49:32 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	is_printable(unsigned char c)
 {
-	write(1, &c, 1);
+	// 출력가능한 문자 출력
+	if (c >=32 && c <= 126)
+		write(1, &c, 1);
+	// 출력불가능한 문자
+	else
+		write(1, ".", 1);
 }
 
-void	ft_print_hexa(char n)
+void	ft_print_hex(unsigned char c)
 {
-	ft_putchar(n / 16 + '0');
-	if (n % 16 < 10)
-	{
-		ft_putchar(n % 16 + '0');
-	}
+	is_printable("0123456789abcdef"[c / 16]);
+	is_printable("0123456789abcdef"[c % 16]);
+}
+
+void	ft_print_first(unsigned int n, int depth)
+{
+	char	mod;
+
+	if (depth == 16)
+		return ;
 	else
 	{
-		ft_putchar(n % 16 - 10 + 'a');
+		mod = "0123456789abcdef"[n % 16];
+		ft_print_first(n / 16, depth + 1);
+		write(1, &mod, 1);
+		if (depth == 0)
+			write(1, ": ", 2);
+	}
+}
+
+void	ft_print_second(char *str, unsigned int idx, int size)
+{
+	while (idx < 16)
+	{
+		if (idx % 2 == 0)
+			write(1, " ", 1);
+
+		if (idx < size)
+			ft_print_hex(str[idx]);
+		idx++;
 	}
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int i;
-	char *s;
+	unsigned int		idx;
+	char				*s;
 
-	i = 0;
-	s = addr;
-	while(*(s+i) != '\n')
+	s = (char *)addr;
+	while (size > 0)
 	{
-		if (i == 0)
-			ft_putchar(' ');
-		else if (i % 16 == 0)
+		idx = 0;
+		ft_print_first((unsigned int)s, 0);
+		ft_print_second(s, idx, size);
+		write(1, " ", 1);
+		while (idx < 16 && idx < size)
 		{
-			ft_putchar(' ');
-			write(1, (char*)addr, 16);
-			ft_putchar('\n');
-			// 주소
-			ft_putchar(' ');
+			is_printable(s[idx]);
+			idx++;
 		}
-		else if (i % 2 == 0)
-		{
-
-			ft_putchar(' ');
-		}
-		ft_print_hexa(*(s+i));
-		i++;
+		write(1, "\n", 1);
+		s = s + idx;
+		size -= idx;
 	}
-
+	return (addr);
 }
 
-int main(){
-	ft_print_memory("Bonjour les amin",17);
+int		main(void)
+{
+	ft_print_memory("Bonjour les aminches\t\n\tc  est fou",17);
+	//ft_print_hex('B');
 }

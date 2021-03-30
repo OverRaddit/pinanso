@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:35:45 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/30 10:40:38 by gshim            ###   ########.fr       */
+/*   Updated: 2021/03/30 16:15:57 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ char	*ft_strcpy(char *dest, char *src)
 		i++;
 	}
 	return (dest);
+}
+
+int main(){
+	char a[] = "helloasedgaerywsrthsrthsr";
+	char b*;
 }
