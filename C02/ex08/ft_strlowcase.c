@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-char *ft_str_is_strupcase(char *str)
+char *ft_strlowcase(char *str)
 {
     int i;
 

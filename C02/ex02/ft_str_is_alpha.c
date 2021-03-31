@@ -25,11 +25,6 @@ int ft_str_is_alpha(char *str)
     int i;
 
     i = 0;
-    if (str[0] == '\0')
-    {
-        //printf("null\n");
-        return (1);
-    }
     while (str[i] != '\0')
     {
         if (!(str[i] >= 97 && str[i] <= 122) || (str[i] >= 65 && str[i] <= 90) )
@@ -40,5 +35,5 @@ int ft_str_is_alpha(char *str)
 }
 
 int main(){
-    printf("%d ", ft_str_is_alpha(""));
+    printf("%d ", ft_str_is_alpha("a21"));
 }

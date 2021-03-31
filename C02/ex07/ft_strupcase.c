@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-char *ft_str_is_strupcase(char *str)
+char *ft_strupcase(char *str)
 {
     int i;
 
@@ -25,7 +25,7 @@ char *ft_str_is_strupcase(char *str)
             str[i] = str[i] - (char)32;
             //printf("@");
         }
-        
+
         i++;
     }
     //str 포인터가 아닌 str배열 자체가 반환되어야 한다
@@ -37,7 +37,7 @@ int main(){
     // 문자열 포인터와 문자열 배열을 구분하자.
     // https://www.youtube.com/watch?v=M7KPfIBzxZ8
     //char *b = "Hello, world!";
-    
-    printf("%s \n", ft_str_is_strupcase(a));
+
+    printf("%s \n", ft_strupcase(a));
     //printf("%s \n", ft_str_is_strupcase(b));
 }

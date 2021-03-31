@@ -12,22 +12,6 @@
 
 #include <unistd.h>
 
-void	is_printable(unsigned char c)
-{
-	// 출력가능한 문자 출력
-	if (c >=32 && c <= 126)
-		write(1, &c, 1);
-	// 출력불가능한 문자
-	else
-		write(1, ".", 1);
-}
-
-void	ft_print_hex(unsigned char c)
-{
-	is_printable("0123456789abcdef"[c / 16]);
-	is_printable("0123456789abcdef"[c % 16]);
-}
-
 void	ft_print_first(unsigned int n, int depth)
 {
 	char	mod;
@@ -44,8 +28,27 @@ void	ft_print_first(unsigned int n, int depth)
 	}
 }
 
-void	ft_print_second(char *str, unsigned int idx, int size)
+void	is_printable(unsigned char c)
 {
+	// 출력가능한 문자 출력
+	if (c >=32 && c <= 126)
+		write(1, &c, 1);
+	// 출력불가능한 문자
+	else
+		write(1, ".", 1);
+}
+
+void	ft_print_hex(unsigned char c)
+{
+	is_printable("0123456789abcdef"[c / 16]);
+	is_printable("0123456789abcdef"[c % 16]);
+}
+
+void	ft_print_second(char *str, int size)
+{
+	unsigned int idx;
+
+	idx = 0;
 	while (idx < 16)
 	{
 		if (idx % 2 == 0)
@@ -67,9 +70,10 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	{
 		idx = 0;
 		ft_print_first((unsigned int)s, 0);
-		ft_print_second(s, idx, size);
+		ft_print_second(s, size);
+		// thrid part
 		write(1, " ", 1);
-		while (idx < 16 && idx < size)
+		while (idx < 16 && idx < size)//16자출력 or 막줄 나머지글자만큼출력
 		{
 			is_printable(s[idx]);
 			idx++;
@@ -83,6 +87,5 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 int		main(void)
 {
-	ft_print_memory("Bonjour les aminches\t\n\tc  est fou",17);
-	//ft_print_hex('B');
+	ft_print_memory("Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\t\t\n\tlol.lol\n \0",92);
 }

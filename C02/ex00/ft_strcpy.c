@@ -40,6 +40,10 @@ char	*ft_strcpy(char *dest, char *src)
 }
 
 int main(){
-	char a[] = "helloasedgaerywsrthsrthsr";
-	char b*;
+	char a[] = "h";
+	char b[] = "1234";
+
+	ft_strcpy(b,a);
+	printf("%s",b);
+
 }
