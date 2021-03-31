@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 00:41:26 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 14:32:53 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/27 20:43:08 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/28 22:27:26 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,34 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_print_comb2(void)
+void	ft_putnbr(int nb)
 {
-	int i;
-	int j;
+	int		i;
+	char	buf[11];
 
-	i = 0;
-	while (i <= 98)
+	if (nb < 0)
 	{
-		j = i + 1;
-		while (j <= 99)
+
+		if (nb == -2147483648)
 		{
-			// i의 10의 자리수
-			ft_putchar((i / 10) + 48);
-			// i의 1의 자리수
-			ft_putchar((i % 10) + 48);
-			ft_putchar(' ');
-			// j의 10의 자리수
-			ft_putchar((j / 10) + 48);
-			// j의 1의 자리수
-			ft_putchar((j % 10) + 48);
-
-			if (i == 98 && j == 99)
-				return ;
-			write(1, ", ", 2);
-			j++;
+			write(1, "-2147483648", 11);
+			return ;
 		}
-		i++;
-	}
-}
 
-int main()
-{
-	ft_print_comb2();
+		ft_putchar('-');
+		nb = nb * -1;
+	}
+	i = -1;
+	if (nb == 0)
+		ft_putchar('0');
+
+	while (nb > 0)
+	{
+		buf[++i] = (nb % 10 + 48);
+		nb = nb / 10;
+	}
+	while (i >= 0)
+	{
+		ft_putchar(buf[i--]);
+	}
 }

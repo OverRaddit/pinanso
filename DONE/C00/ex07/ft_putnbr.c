@@ -24,20 +24,27 @@ void	ft_putnbr(int nb)
 
 	if (nb < 0)
 	{
+
 		if (nb == -2147483648)
 		{
 			write(1, "-2147483648", 11);
 			return ;
 		}
+
 		ft_putchar('-');
 		nb = nb * -1;
 	}
 	i = -1;
 	if (nb == 0)
 		ft_putchar('0');
+
+	// 양수의 출력과정
 	while (nb > 0)
 	{
-		buf[++i] = (char)(nb % 10 + 48);
+		// nb = 12345
+		// nb % 10 = 5; 48 = '0'
+		// nb = nb / 10
+		buf[++i] = (nb % 10 + 48);
 		nb = nb / 10;
 	}
 	while (i >= 0)
