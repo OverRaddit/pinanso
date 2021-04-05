@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/04/05 12:59:08 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/05 12:59:08 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strcmp(char *s1, char *s2)
+int	ft_iterative_factorial(int nb)
 {
 	int i;
+	int ret;
 
-	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
+	i = 1;
+	ret = 1;
+	while(i <= nb)
 	{
-		if(s1[i] < s2[i])
-			return (-1);
-		else if(s1[i] > s2[i])
-			return (1);
+		ret = ret * i;
 		i++;
 	}
-	return (0);
-}
-
-int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
+	return ret;
 }

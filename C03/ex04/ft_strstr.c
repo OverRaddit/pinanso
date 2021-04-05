@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include <unistd.h>
 #include <stdio.h>
 
 char	*ft_strstr(char *str, char *to_find)
@@ -34,16 +36,22 @@ char	*ft_strstr(char *str, char *to_find)
 			return (str + i);
 		i++;
 	}
+	// 이렇게 반환하던, 0을 반환하던 똑같은 결과가 나온다.
+	// NULL을 사용하려면 stdio.h 헤더를 써야 한다.
 	return (0);
 }
 
 int main()
 {
-	char str1[] = "BlockDMask. He is a smart man";
-	char str2[] = "smart";
-	char str3[] = "";
-	char *c;
-	c =  ft_strstr(str1,str2);
-	printf("%s", c);
-
+	char str1[] = "";
+	char str2[] = "bb";
+	char *c1;
+	char *c2;
+	printf("str1:%s\n",str1);
+	c1 =  ft_strstr(str1,str2);
+	printf("str1:%s\n",str1);
+	c2 =  strstr(str1,str2);
+	printf("str1:%s\n",str1);
+	printf("%p\n", c1);
+	printf("%p\n", c2);
 }

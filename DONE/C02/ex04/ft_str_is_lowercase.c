@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/29 15:53:11 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/29 15:53:11 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int ft_str_is_lowercase(char *str)
 {
-	int i;
+    int i;
 
-	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
-	{
-		if(s1[i] < s2[i])
-			return (-1);
-		else if(s1[i] > s2[i])
-			return (1);
-		i++;
-	}
-	return (0);
+    i = 0;
+    if (str[0] == '\0')
+    {
+        //printf("null\n");
+        return (1);
+    }
+    while (str[i] != '\0')
+    {
+        // 소문자가 아닌 문자가 있으면 즉시종료
+        if (!(str[i] >= 97 && str[i] <= 122))
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
 int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
+    printf("%d ", ft_str_is_lowercase(""));
 }

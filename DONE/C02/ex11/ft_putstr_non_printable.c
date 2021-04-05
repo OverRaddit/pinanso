@@ -1,35 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/29 23:57:07 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/29 23:57:07 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_print_hexa(char c)
+{
+	ft_putchar('\\');
+	ft_putchar(c / 16 + '0');
+	if (c % 16 < 10)
+	{
+		ft_putchar(c % 16 + '0');
+	}
+	else
+	{
+		ft_putchar(c % 16 - 10 + 'a');
+	}
+}
+
+void	ft_putstr_non_printable(char *str)
 {
 	int i;
 
 	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(s1[i] < s2[i])
-			return (-1);
-		else if(s1[i] > s2[i])
-			return (1);
+		if (!(str[i] >= 32 && str[i] <= 126))
+		{
+			ft_print_hexa(str[i]);
+		}
+		else
+		{
+			ft_putchar(str[i]);
+		}
 		i++;
 	}
-	return (0);
-}
-
-int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
 }

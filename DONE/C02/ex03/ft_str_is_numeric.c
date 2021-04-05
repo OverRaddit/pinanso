@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/29 15:38:27 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/29 15:38:27 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int ft_str_is_numeric(char *str)
 {
-	int i;
+    int i;
 
-	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
-	{
-		if(s1[i] < s2[i])
-			return (-1);
-		else if(s1[i] > s2[i])
-			return (1);
-		i++;
-	}
-	return (0);
+    i = 0;
+    if (str[0] == '\0')
+    {
+        //printf("null\n");
+        return (1);
+    }
+    while (str[i] != '\0')
+    {
+        //printf("i = %d\n",i);
+        // 숫자가 아닌 문자 출현 시 즉시 종료
+        if (!(str[i] >= '0' && str[i] <= '9'))
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
 int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
+    printf("%d ", ft_str_is_numeric(""));
 }

@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/04/05 13:06:25 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/05 13:06:25 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int ft_recursive_power(int nb, int power)
 {
 	int i;
-
-	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
-	{
-		if(s1[i] < s2[i])
-			return (-1);
-		else if(s1[i] > s2[i])
-			return (1);
-		i++;
+	int ret;
+	ret = 1;
+	if(nb < 0)
+		return 0;
+	if(nb == 0){
+		return 1;
 	}
-	return (0);
+	if(power == 0){
+		return ret;
+	}
+	ret = nb * ft_recursive_power(nb, power - 1);
+
 }
 
 int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
+	int a = ft_recursive_power(2,10);
+	printf("%d \n",a);
 }

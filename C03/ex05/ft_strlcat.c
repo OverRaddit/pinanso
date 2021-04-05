@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 int				ft_strlen(char *str)
 {
@@ -27,25 +28,27 @@ int				ft_strlen(char *str)
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int destlen;
+	unsigned int srclen;
 	unsigned int i;
 
 	destlen = ft_strlen(dest);
+	srclen = ft_strlen(src);
+	if(size < destlen)
+		return (srclen + size);
 	i = 0;
-	while(src[i] != '\0')
+	while(i < srclen && i + destlen + 1 < size)
 	{
-		if (i == size - 1)
-			break;
 		dest[destlen + i] = src[i];
 		i++;
 	}
 	dest[destlen + i] = '\0';
-	return (destlen + i);
+	return (destlen + srclen);
 }
 
 int main(){
-	// 0 예외처리만 해주면 될 것 같다.
-	char a[] = "";
-	char b[] = "";
-	printf("%d \n",ft_strlcat(b,a,5));
+	char a[100] = "abc";
+	char b[] = "def";
+	printf("%d \n",ft_strlcat(a,b,5));
+	printf("%d \n",strlcat(a,b,5));
 	printf("%s \n",b);
 }

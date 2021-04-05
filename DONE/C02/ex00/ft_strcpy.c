@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 20:43:08 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/28 22:27:26 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/29 14:35:45 by gshim             #+#    #+#             */
+/*   Updated: 2021/03/30 16:15:57 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int		ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-void	ft_putnbr(int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int		i;
-	char	buf[11];
+	int i;
+	int size;
 
-	if (nb < 0)
+	i = 0;
+	size = ft_strlen(src);
+	while (i < size + 1)
 	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
+}
 
-		if (nb == -2147483648)
-		{
-			write(1, "-2147483648", 11);
-			return ;
-		}
+int main(){
+	char a[] = "h";
+	char b[] = "1234";
 
-		ft_putchar('-');
-		nb = nb * -1;
-	}
-	i = -1;
-	if (nb == 0)
-		ft_putchar('0');
-	while (nb > 0)
-	{
-		buf[++i] = (nb % 10 + 48);
-		nb = nb / 10;
-	}
-	while (i >= 0)
-	{
-		ft_putchar(buf[i--]);
-	}
+	ft_strcpy(b,a);
+	printf("%s",b);
+
 }
