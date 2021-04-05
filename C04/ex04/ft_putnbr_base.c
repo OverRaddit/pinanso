@@ -49,16 +49,17 @@ void	ft_putnbr_base(int nbr, char *base)
 	char	mod;
 
 	baselen = checklen(base);
-	printf("%d \n",baselen);
+	//printf("%d \n",baselen);
 	if(baselen <= 1)
 		return ;
 	// 이 부분만 수정하면 되는데,,,
+	// 여기를 다른 진법으로 바꿀때 문제가 있을 수 있다.
 	if(nbr == -2147483648)
 	{
 		ft_putnbr_base(-2, base);
 		ft_putnbr_base(147483648, base);
 	}
-	if(nbr < 0)
+	else if(nbr < 0)
 	{
 		write(1, "-", 1);
 		nbr = nbr * -1;
@@ -68,6 +69,6 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int main()
 {
-	char base[] = "01";
-	ft_putnbr_base(16, base);
+	char base[] = "0123456789";
+	ft_putnbr_base(-2147483648, base);
 }
