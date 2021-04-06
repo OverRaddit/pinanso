@@ -6,12 +6,14 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:51:16 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/06 21:08:01 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/06 22:02:21 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+
+void recursive(int x, int y, int depth);
 
 int		g_chess[10][10] = {0};
 int		g_vx[10] = {0};
@@ -61,14 +63,13 @@ void paint(int i, int j, int value)
 void recursive(int x, int y, int depth)
 {
 	int k;
-	int j;
 	char c;
-	printf(">depth %d\n",depth);
+	//printf(">depth %d\n",depth);
 	if (depth == 10)
 	{
 		//print_chess();
 		k = 0;
-		printf(">%d",k);
+		//printf(">%d",k);
 		while (k < 10)
 		{
 			c = g_vx[k] + '0';
@@ -78,22 +79,23 @@ void recursive(int x, int y, int depth)
 		write(1, "\n", 1);
 		return ;
 	}
-	j = 0;
 
-	while (j < 10 && g_chess[x][j] == 0)
+	while (x < 10)
 	{
-		paint(x, j, 1);
-		g_vx[depth] = x;
-		g_vy[depth] = j;
-		recursive(x + 1, j, depth + 1);
-		paint(x, y, 0);
-		g_vx[depth] = 0;
-		g_vx[depth] = 0;
-		j++;
+		if (g_chess[x][y] == 0)
+		{
+			printf(">%d\n",depth);
+			paint(x, y, 1);
+			g_vx[depth] = x;
+			g_vy[depth] = y;
+			recursive(x, y + 1, depth + 1);
+			paint(x, y, 0);
+			g_vx[depth] = 0;
+			g_vx[depth] = 0;
+		}
+		x++;
 	}
 }
-
-
 
 int ft_ten_queens_puzzle(void)
 {
@@ -102,8 +104,7 @@ int ft_ten_queens_puzzle(void)
 
 	n = 0;
 	i = 0;
-	while (i < 10)
-		recursive(0, i++, 0);
+	recursive(0,0,0);
 
 
 	return (0);
