@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 13:06:25 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/06 20:01:00 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/31 17:50:43 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/06 14:30:10 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-int	ft_recursive_power(int nb, int power)
+unsigned int	ft_strlen(char *str)
 {
-	int ret;
+	unsigned int i;
 
-	ret = 1;
-	if (nb < 0)
-		return (0);
-	if (nb == 0)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		return (1);
+		i++;
 	}
-	if (power == 0)
-		return (ret);
-	ret = nb * ft_recursive_power(nb, power - 1);
-	return (ret);
+	return (i);
+}
+
+char			*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int destlen;
+	unsigned int i;
+
+	destlen = ft_strlen(dest);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		if (i == nb)
+		{
+			break ;
+		}
+		dest[destlen + i] = src[i];
+		i++;
+	}
+	dest[destlen + i] = '\0';
+	return (dest);
 }

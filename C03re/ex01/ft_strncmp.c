@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 16:08:52 by gshim             #+#    #+#             */
-/*   Updated: 2021/03/31 16:08:52 by gshim            ###   ########.fr       */
+/*   Created: 2021/03/31 16:16:46 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/06 19:49:51 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while(s1[i] !='\0' || s2[i] != '\0')
+	while (s1[i] != '\0' || s2[i] != '\0')
 	{
-		if(s1[i] < s2[i])
+		if (i == n)
+			break ;
+		if (s1[i] < s2[i])
 			return (-1);
-		else if(s1[i] > s2[i])
+		else if (s1[i] > s2[i])
 			return (1);
 		i++;
 	}
 	return (0);
-}
-
-int main(){
-	printf("%d\n", ft_strcmp("a", "z"));
-	printf("%d\n", ft_strcmp("bbsd", "bbs"));
-	printf("%d\n", ft_strcmp("asdf", "asda"));
 }
