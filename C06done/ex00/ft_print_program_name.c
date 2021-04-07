@@ -24,9 +24,10 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	main(int argc, char* argv[])
+int	main(int argc, char *argv[])
 {
-	// 현재 경로명까지 다나오는데 클러스터에서 실험해봐야 할듯 싶다.
+	if (argc != 1)
+		return (-1);
 	write(1, argv[0], ft_strlen(argv[0]) + 1);
-	return 0;
+	return (0);
 }

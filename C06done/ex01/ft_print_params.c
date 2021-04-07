@@ -18,9 +18,7 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -29,10 +27,10 @@ int	main(int argc, char *argv[])
 	int i;
 
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
 		write(1, argv[i], ft_strlen(argv[i]) + 1);
-		if(!(i == argc - 1))
+		if (!(i == argc - 1))
 			write(1, "\n", 1);
 		i++;
 	}

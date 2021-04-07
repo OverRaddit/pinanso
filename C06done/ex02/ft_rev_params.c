@@ -29,10 +29,10 @@ int	main(int argc, char *argv[])
 	int i;
 
 	i = argc - 1;
-	while(i >= 1)
+	while (i >= 1)
 	{
 		write(1, argv[i], ft_strlen(argv[i]) + 1);
-		if(!(i == 1))
+		if (!(i == 1))
 			write(1, "\n", 1);
 		i--;
 	}

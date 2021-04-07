@@ -37,8 +37,3 @@ int	ft_find_next_prime(int nb)
 		i++;
 	return (i);
 }
-
-int main(){
-	printf("%d\n",ft_is_prime(11677));
-	printf("%d\n",ft_find_next_prime(11678));
-}
