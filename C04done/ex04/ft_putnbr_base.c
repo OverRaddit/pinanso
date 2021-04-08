@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:15:10 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 14:37:03 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 18:25:09 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, &base[-(nbr % baselen)], 1);
 	}
 	else if (nbr == 0)
-		write(1, "0", 1);
+		write(1, &base[0], 1);
 	else
 		recursive(nbr, base, baselen, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:37:39 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 14:43:23 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 15:36:38 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ int		baselen(char *base)
 	while (base[i] != '\0')
 	{
 		if (g_check[(int)base[i]] != -1 || base[i] == '+' || base[i] == '-')
-		{
 			return (-1);
-		}
 		g_check[(int)base[i]] = i;
 		i++;
 	}
@@ -77,7 +75,4 @@ int		ft_atoi_base(char *str, char *base)
 	return (ret);
 }
 
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
-{
-	ft_atoi_base(nbr, base_from);
-}
+

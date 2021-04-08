@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 13:45:49 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/05 13:45:49 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 21:10:48 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ int	main(int argc, char *argv[])
 	i = 1;
 	while (i < argc)
 	{
-		write(1, argv[i], ft_strlen(argv[i]) + 1);
-		if (!(i == argc - 1))
-			write(1, "\n", 1);
+		write(1, argv[i], ft_strlen(argv[i]));
 		i++;
 	}
 }

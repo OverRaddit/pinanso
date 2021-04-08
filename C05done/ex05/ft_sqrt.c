@@ -6,11 +6,9 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 13:23:07 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 10:33:11 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 20:25:04 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_sqrt(int nb)
 {
@@ -18,10 +16,8 @@ int	ft_sqrt(int nb)
 
 	i = 1;
 	while (i * i <= nb)
-	{
-		if (i * i == nb)
-			return (i);
 		i++;
-	}
+	if (i * i == nb)
+		return (i);
 	return (0);
 }
