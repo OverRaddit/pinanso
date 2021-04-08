@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:51:16 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/06 22:02:21 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 21:47:43 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ void	print_answer(void)
 	char	c;
 
 	k = -1;
-	if (g_count != 0)
-		write(1, "\n", 1);
 	while (++k < 10)
 	{
 		c = g_vx[k] + '0';
 		write(1, &c, 1);
 	}
+	write(1, "\n", 1);
 }
 
 void	recursive(int x, int y)
