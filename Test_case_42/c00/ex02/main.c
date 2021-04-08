@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 13:23:07 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 22:50:31 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 05:29:37 by shpark            #+#    #+#             */
+/*   Updated: 2020/01/30 08:39:49 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int i;
+#include <stdio.h>
+#include "ft_print_reverse_alphabet.c"
 
-	i = 1;
-	if (nb < 0)
-		return (0);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
+int		main(void)
+{
+	ft_print_reverse_alphabet();
+	printf("\n");
+	printf("Correct Answer : zyxwwvutsrqponmlkjihgfedcba\n");
 }

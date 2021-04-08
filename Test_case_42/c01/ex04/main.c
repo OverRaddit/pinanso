@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 13:23:07 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 22:50:31 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 03:45:02 by shpark            #+#    #+#             */
+/*   Updated: 2020/01/30 08:42:54 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int i;
+#include <stdio.h>
+#include "ft_ultimate_div_mod.c"
 
-	i = 1;
-	if (nb < 0)
-		return (0);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
+int		main(void)
+{
+	int a;
+	int b;
+
+	a = 5;
+	b = 2;
+	ft_ultimate_div_mod(&a, &b);
+	printf("div %d, left %d\n", a, b);
 }

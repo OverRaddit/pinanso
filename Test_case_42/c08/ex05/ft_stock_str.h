@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 13:23:07 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 22:50:31 by gshim            ###   ########.fr       */
+/*   Created: 2020/02/05 09:34:00 by shpark            #+#    #+#             */
+/*   Updated: 2020/02/05 09:34:01 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int i;
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-	i = 1;
-	if (nb < 0)
-		return (0);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
-}
+typedef struct	s_stock_str
+{
+	int			size;
+	char		*str;
+	char		*copy;
+}				t_stock_str;
+
+#endif

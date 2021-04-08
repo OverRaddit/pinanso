@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 13:23:07 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 22:50:31 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 07:17:50 by shpark            #+#    #+#             */
+/*   Updated: 2020/02/05 10:33:19 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int i;
+#include "ft_point.h"
 
-	i = 1;
-	if (nb < 0)
-		return (0);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
+void	set_point(t_point *point)
+{
+	point->x = 42;
+	point->y = 21;
+}
+
+int		main(void)
+{
+	t_point	point;
+
+	set_point(&point);
 	return (0);
 }
