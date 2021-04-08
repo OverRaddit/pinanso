@@ -6,20 +6,16 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 18:11:33 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/06 17:38:25 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 11:55:31 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
-#include <unistd.h>
-#include <stdio.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int i;
 	int j;
 
-	if (*str == '\0' || *to_find == '\0')
+	if (*to_find == '\0')
 		return (str);
 	i = 0;
 	while (str[i] != '\0')

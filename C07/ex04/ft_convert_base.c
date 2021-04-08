@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 20:24:47 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 14:36:58 by gshim            ###   ########.fr       */
+/*   Created: 2021/04/08 14:37:39 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/08 14:43:23 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,9 @@ int		ft_atoi_base(char *str, char *base)
 	if (minus % 2 == 1)
 		ret *= -1;
 	return (ret);
+}
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+{
+	ft_atoi_base(nbr, base_from);
 }
