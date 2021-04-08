@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:15:05 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/05 10:15:05 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/08 10:16:02 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_atoi(char *str)
 	int		ret;
 
 	minus = 0;
+	ret = 0;
 	while (check_space(str[0]) == 1)
 		str++;
 	while (str[0] == '-' || str[0] == '+')
