@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 13:53:16 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 21:10:56 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/10 10:58:16 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		main(int argc, char *argv[])
 	while (i < argc)
 	{
 		write(1, argv[i], ft_strlen(argv[i]));
+		write(1, "\n", 1);
 		i++;
 	}
 	return (0);

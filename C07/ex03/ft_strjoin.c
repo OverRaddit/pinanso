@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 11:08:12 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 12:59:06 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/10 17:55:02 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (ret);
 	}
 	i = -1;
+	strsize = 0;
 	while (++i < size)
 		strsize += ft_strlen(strs[i]);
-	strsize += size - 1;
+	strsize += (size - 1) * ft_strlen(sep);
 	ret = (char *)malloc(sizeof(char) * (strsize + 1));
 	i = -1;
 	while (++i < size - 1)
@@ -65,16 +66,18 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	ft_strcat(ret, strs[size - 1]);
 	return (ret);
 }
-
+/*
 int main(){
 	char *strs[4];
-	char *sep = ", ";
+	char sep[] = ", ";
 	char *s;
-	strs[0] = "abc";
-	strs[1] = "def";
-	strs[2] = "ghi";
-	strs[3] = "jkl";
 
-	s = ft_strjoin(0,strs,sep);
+	strs[0] = "lol";
+	strs[1] = "1234";
+	strs[2] = "poiuic";
+	strs[3] = "1234";
+
+	s = ft_strjoin(4, strs, sep);
 	printf("%s\n",s);
 }
+*/

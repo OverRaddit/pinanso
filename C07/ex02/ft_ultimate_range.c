@@ -1,49 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 14:35:45 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/10 19:50:42 by gshim            ###   ########.fr       */
+/*   Created: 2021/04/08 11:03:57 by gshim             #+#    #+#             */
+/*   Updated: 2021/04/10 16:48:25 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-int		ft_strlen(char *str)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int i;
+	int	size;
+	int	*arr;
+	int	i;
 
+	if (max > min)
+		size = max - min;
+	else
+		return (0);
+	arr = (int *)malloc(sizeof(int) * size);
+	*range = arr;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < size)
 	{
+		arr[i] = min + i;
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
-	int size;
-
-	i = 0;
-	size = ft_strlen(src);
-	while (i < size + 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
-
-int main(){
-	char a[] = "h";
-	char b[] = "1234";
-
-	ft_strcpy(b,a);
-	printf("%s",b);
-
+	return (size);
 }
