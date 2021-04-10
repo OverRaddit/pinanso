@@ -21,6 +21,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 	else
 		return (0);
 	arr = (int *)malloc(sizeof(int) * size);
+	range = (int **)malloc(sizeof(int **) * 1);
+	*range = arr;
 	i = 0;
 	while (i < size)
 	{
