@@ -58,7 +58,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	strsize += (size - 1) * ft_strlen(sep);
 	ret = (char *)malloc(sizeof(char) * (strsize + 1));
 	i = -1;
-	// 이거 없으면 이상하게 붙여지나?
+	// 이거 없으면 테스트에서 이상하게 되네... 왜그럴까?
 	ret[0] = '\0';
 	while (++i < size - 1)
 	{
