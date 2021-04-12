@@ -55,7 +55,7 @@ int		word_count(char *str, char *to_find)
 
 	count = 0;
 	if (*to_find == '\0')
-		return (str);
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 	{

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 
 int		base_to_len(unsigned int n, unsigned int baselen)
@@ -39,9 +40,9 @@ char	*int_to_base(int nbr, char *base_to, int baselen)
 		ret[j++] = base_to[-(nbr % baselen)];
 		nbr = nbr / baselen;
 	}
-	while (i > 0)
+	while (i >= 0)
 	{
-		ret[j] = base_to[nbr % baselen];
+		ret[j++] = base_to[nbr % baselen];
 		nbr = nbr / baselen;
 		i--;
 	}
@@ -58,4 +59,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (0);
 	ret = int_to_base(number, base_to, baselen(base_from));
 	return (ret);
+}
+
+int		main()
+{
+	char *a;
+	a = ft_convert_base("2147483647", "0123456789", "0123456789abcdef");
+	printf("%s \n", a);
 }
