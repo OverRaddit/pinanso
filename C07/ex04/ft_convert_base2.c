@@ -33,16 +33,16 @@ char	*int_to_base(int nbr, char *base_to, int baselen)
 	if (nbr < 0)
 		i++;
 	ret = (char *)malloc(sizeof(char) * (i + 1));
-	ret[i] = '\0';
+	ret[i--] = '\0';
 	if (nbr < 0)
 	{
 		ret[0] = '-';
-		ret[j++] = base_to[-(nbr % baselen)];
+		ret[i--] = base_to[-(nbr % baselen)];
 		nbr = nbr / baselen;
 	}
 	while (i >= 0)
 	{
-		ret[j++] = base_to[nbr % baselen];
+		ret[i] = base_to[nbr % baselen];
 		nbr = nbr / baselen;
 		i--;
 	}
@@ -57,7 +57,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	number = ft_atoi_base(nbr, base_from);
 	if (number == -1)
 		return (0);
-	ret = int_to_base(number, base_to, baselen(base_from));
+	init();
+	ret = int_to_base(number, base_to, baselen(base_to));
 	return (ret);
 }
 
