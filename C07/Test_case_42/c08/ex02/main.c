@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 10:50:51 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 11:01:47 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 07:17:29 by shpark            #+#    #+#             */
+/*   Updated: 2020/02/05 10:29:45 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 
-int	*ft_range(int min, int max)
-{
-	int	size;
-	int	*arr;
-	int	i;
+#include "ft_abs.h"
 
-	if (max > min)
-		size = max - min;
-	else
-		return (0);
-	arr = (int *)malloc(sizeof(int) * size);
-	i = 0;
-	while (i < size)
+int	main(void)
+{
+	int	index;
+
+	index = -5;
+	while (index < 5)
 	{
-		arr[i] = min + i;
-		i++;
+		printf("macros::abs(%d) = %d\n", index, ABS(index));
+		index++;
 	}
-	return (arr);
 }

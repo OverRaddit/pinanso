@@ -58,8 +58,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	strsize += (size - 1) * ft_strlen(sep);
 	ret = (char *)malloc(sizeof(char) * (strsize + 1));
 	i = -1;
+	// 이거 없으면 이상하게 붙여지나?
+	ret[0] = '\0';
 	while (++i < size - 1)
 	{
+		// ret = ft_strcat()하는거랑 차이가 있을까?
 		ft_strcat(ret, strs[i]);
 		ft_strcat(ret, sep);
 	}

@@ -12,34 +12,39 @@
 
 #include <stdlib.h>
 
+int		base_to_len(unsigned int n, unsigned int baselen)
+{
+	if (n < baselen)
+		return (1);
+	return (base_to_len(n / baselen, baselen) + 1);
+}
+
 char	*int_to_base(int nbr, char *base_to, int baselen)
 {
-	char	buf[11];
 	char	*ret;
 	int		i;
 	int		j;
 
-	i = 0;
 	j = 0;
 	if (baselen <= 1)
 		return (0);
+	i = base_to_len((unsigned int)nbr, (unsigned int)baselen);
 	if (nbr < 0)
-	{
-		buf[i++] = '-';
-		buf[i++] = base_to[-(nbr % baselen)];
-		nbr = nbr * -1;
-	}
-	while (nbr > 0)
-		buf[i++] = base_to[nbr % baselen];
-	//@@@@@@@@@@@@@@@@@@@@@
-	for(int j=0;j<10;j++)
-		printf("%c ",buf[i]);
-	//@@@@@@@@@@@@@@@@@@
+		i++;
 	ret = (char *)malloc(sizeof(char) * (i + 1));
 	ret[i] = '\0';
-
-	while (j < i)
-		ret[j] = buf[i - 1 - j];
+	if (nbr < 0)
+	{
+		ret[0] = '-';
+		ret[j++] = base_to[-(nbr % baselen)];
+		nbr = nbr / baselen;
+	}
+	while (i > 0)
+	{
+		ret[j] = base_to[nbr % baselen];
+		nbr = nbr / baselen;
+		i--;
+	}
 	return (ret);
 }
 

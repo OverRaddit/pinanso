@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 10:50:51 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 11:01:47 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 04:24:25 by shpark            #+#    #+#             */
+/*   Updated: 2020/01/30 08:43:27 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include "ft_strcpy.c"
 
-int	*ft_range(int min, int max)
+int		main(void)
 {
-	int	size;
-	int	*arr;
-	int	i;
+	char *src;
+	char dest[12];
 
-	if (max > min)
-		size = max - min;
-	else
-		return (0);
-	arr = (int *)malloc(sizeof(int) * size);
-	i = 0;
-	while (i < size)
-	{
-		arr[i] = min + i;
-		i++;
-	}
-	return (arr);
+	src = "Hello World";
+	printf("base   : %s\n", src);
+	strcpy(dest, src);
+	printf("cpy    : %s\n", dest);
+	ft_strcpy(dest, src);
+	printf("ft_cpy : %s\n", dest);
 }

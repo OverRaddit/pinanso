@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: shpark <shpark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 10:50:51 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/08 11:01:47 by gshim            ###   ########.fr       */
+/*   Created: 2020/01/28 03:45:02 by shpark            #+#    #+#             */
+/*   Updated: 2020/01/30 08:42:54 by shpark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include "ft_ultimate_div_mod.c"
 
-int	*ft_range(int min, int max)
+int		main(void)
 {
-	int	size;
-	int	*arr;
-	int	i;
+	int a;
+	int b;
 
-	if (max > min)
-		size = max - min;
-	else
-		return (0);
-	arr = (int *)malloc(sizeof(int) * size);
-	i = 0;
-	while (i < size)
-	{
-		arr[i] = min + i;
-		i++;
-	}
-	return (arr);
+	a = 5;
+	b = 2;
+	ft_ultimate_div_mod(&a, &b);
+	printf("div %d, left %d\n", a, b);
 }
