@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "validate.h"
-
+#include <stdio.h>
 int check_map_info(char *buf, t_map *map)
 {
+	printf("checkmapinfo~\n");
 	int i;
 
 	i = 0;
 	while(buf[i] != '\n')
 		i++;
+	printf("i == %d",i);
 	if(i == 4)
 	{
 		map -> y = buf[0];
@@ -33,6 +35,7 @@ int check_map_info(char *buf, t_map *map)
 			return (0);
 		return (1);
 	}
+	printf("before while\n");
 	while(buf[i] != '\n')
 		i++;
 	map -> x = i - 3;
