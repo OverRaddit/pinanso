@@ -15,7 +15,9 @@
 
 # define MAX_BUF 1024
 # include <fcntl.h>
-char	*extend(char *buf, int bufsize);
+# include <stdlib.h>
+# include <unistd.h>
+char	*extend(char *buf);
 char	*read_file(char *filename);
 
 #endif
