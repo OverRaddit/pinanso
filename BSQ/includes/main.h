@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include "struct.h"
 # include "read.h"
+# include "validate.h"
 
 #endif
 

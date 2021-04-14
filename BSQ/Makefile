@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
 
-$.o: %.c
+%.o: %.c
 	gcc $(CFLAGS) -c $< -o $@ -I $(INCDIR)
 
 $(TARGET): $(OBJS)

@@ -12,10 +12,9 @@
 
 #ifndef FT_VALIDATE_H
 # define FT_VALIDATE_H
-
+# include "struct.h"
 int check_map_info(char *buf, t_map *map);
 int	len(char *buf);
-void check_validate(char *buf);
-# include "struct.h"
+int check_validate(char *buf, t_map *map);
 
 #endif

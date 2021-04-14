@@ -46,15 +46,15 @@ int	len(char *buf)
 	len = 0;
 	while(buf[len] == '\n')
 		len++;
+	return (len);
 }
 
-void check_validate(char *buf)
+int check_validate(char *buf, t_map *map)
 {
 	int i;
-	t_map	*map;
 
 	i = 0;
-	while(buf[i] != '\n');
+	while(buf[i] != '\n')
 		i++;
 	while(buf[i] != '\0')
 	{
@@ -64,5 +64,5 @@ void check_validate(char *buf)
 		}
 		i += map -> x;
 	}
-
+	return (1);
 }
