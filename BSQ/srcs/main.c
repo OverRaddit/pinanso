@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "main.h"
+
 void bsq(char *filename)
 {
 	char	*buf;
@@ -18,6 +20,7 @@ void bsq(char *filename)
 	buf = read_file(filename);
 
 	// 유효한 지도인지 판단한다.
+	map = 0;
 	check_map_info(buf, map);
 	printf("y = %d, x = %d \n",map->y,map->x);
 	printf("empty = %c, wall = %c, full = %c\n",map->empty,map->wall,map->full);

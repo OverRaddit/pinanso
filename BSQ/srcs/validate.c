@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct.h"
+#include "validate.h"
 
 int check_map_info(char *buf, t_map *map)
 {
