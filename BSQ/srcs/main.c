@@ -10,12 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include "struct.h"
-#include "read.h"
-#define MAX_BUF 1024
-
 void bsq(char *filename)
 {
 	char	*buf;
@@ -36,8 +30,7 @@ void bsq(char *filename)
 
 }
 
-#include <stdio.h>
-#include <stdlib.h>
+
 char **arr;
 int visited[30][30];
 int d[1001][1001];
