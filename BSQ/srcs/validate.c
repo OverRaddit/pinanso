@@ -20,10 +20,10 @@ int check_map_info(char *buf, t_map *map)
 	i = 0;
 	while(buf[i] != '\n')
 		i++;
-	printf("i == %d",i);
 	if(i == 4)
 	{
-		map -> y = buf[0];
+		map -> y = buf[0] - '0';
+		printf("map y=%d\n",map -> y);
 		map -> empty = buf[1];
 		map -> wall = buf[2];
 		map -> full = buf[3];
@@ -33,13 +33,15 @@ int check_map_info(char *buf, t_map *map)
 			return (0);
 		if(map->wall == map->full)
 			return (0);
-		return (1);
 	}
 	printf("before while\n");
+	i++;
 	while(buf[i] != '\n')
 		i++;
-	map -> x = i - 3;
-	return (0);
+	printf("next line to next line = %d\n",i);
+	map -> x = i - 5;
+	printf("map x=%d\n",map -> x);
+	return (1);
 }
 
 int	len(char *buf)

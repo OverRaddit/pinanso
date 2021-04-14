@@ -21,7 +21,7 @@ void bsq(char *filename)
 	buf = read_file(filename);
 	printf("check2\n");
 	// 유효한 지도인지 판단한다.
-	map = 0;
+	map = (t_map *)malloc(sizeof(t_map*));
 	check_map_info(buf, map);
 	printf("check3\n");
 	printf("y = %d, x = %d \n",map->y,map->x);
@@ -122,8 +122,8 @@ int	main(int argc, char *argv[])
 {
 	int i;
 
-	i = 1;
-	while(i < argc)
+	i = 0;
+	while(++i < argc)
 		bsq(argv[i]);
 	return (0);
 }
