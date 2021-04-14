@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#define MAX_BUF 1024
+#include "read.h"
 
 char	*extend(char *buf, int bufsize)
 {
