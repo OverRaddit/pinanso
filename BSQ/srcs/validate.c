@@ -22,11 +22,16 @@ int check_map_info(char *buf, t_map *map)
 		i++;
 	if(i == 4)
 	{
-		map -> y = buf[0] - '0';
-		printf("map y=%d\n",map -> y);
-		map -> empty = buf[1];
-		map -> wall = buf[2];
-		map -> full = buf[3];
+		map -> y = 0;
+		while (buf[0] >= '0' && buf[0] <= '9')
+		{
+			map -> y *= 10;
+			map -> y += (buf[0] - '0');
+			buf++;
+		}
+		map -> empty = *buf++;
+		map -> wall = *buf++;
+		map -> full = *buf++;
 		if(map->empty == map->wall)
 			return (0);
 		if(map->empty == map->full)

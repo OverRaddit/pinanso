@@ -21,5 +21,3 @@
 # include "validate.h"
 
 #endif
-
-
