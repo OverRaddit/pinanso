@@ -17,17 +17,14 @@ void bsq(char *filename)
 	char	*buf;
 	t_map	*map;
 	// 파일을 읽는다.
-	printf("check1\n");
 	buf = read_file(filename);
-	printf("check2\n");
 	// 유효한 지도인지 판단한다.
 	map = (t_map *)malloc(sizeof(t_map*));
 	check_map_info(buf, map);
-	printf("check3\n");
 	printf("y = %d, x = %d \n",map->y,map->x);
 	printf("empty = %c, wall = %c, full = %c\n",map->empty,map->wall,map->full);
-	//check_validate(buf, map);
-
+	printf("check: %d",check_validate(buf, map));
+	
 	// read한 파일을 map 구조체로 변환한다.
 
 

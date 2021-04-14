@@ -33,6 +33,8 @@ int check_map_info(char *buf, t_map *map)
 			return (0);
 		if(map->wall == map->full)
 			return (0);
+		if(map -> y == 0)
+			return (0);
 	}
 	printf("before while\n");
 	i++;
@@ -64,9 +66,7 @@ int check_validate(char *buf, t_map *map)
 	while(buf[i] != '\0')
 	{
 		if(len(buf + i) != map -> x)
-		{
 			return (0);
-		}
 		i += map -> x;
 	}
 	return (1);
