@@ -73,7 +73,8 @@ char **ft_split(char *str, char *charset)
 			ret[i][j] = 0;
 			i++;
 		}
-		str++;
+		if(*str)
+			str++;
 	}
 	ret[i] = 0;
 	return (ret);
