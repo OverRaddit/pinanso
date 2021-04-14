@@ -10,122 +10,70 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// 단어가 0개면 널문자열 반환해야함.
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-
-}
-
-
-
-int		ft_strstr(char *str, char *to_find)
-{
-	int i;
-	int j;
-
-	if (*to_find == '\0')
-		return (-1);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		j = 0;
-		while (to_find[j] != '\0')
-		{
-			if (str[i] == to_find[j])
-				return (i);
-			j++;
-		}
-		i++;
-	}
-	return (-1);
-}
-
-int		sep_count(char *str, char *charset)
-{
-	int count;
-
-	count = 0;
-	while(*str)
-	{
-		if(check(*str, charset) == 1)
-			count++;
-		str++;
-	}
-	return (count);
-}
-
-int		check(char c, char *charset)
+int		is_sep(char c, char *charset)
 {
 	while(*charset)
 	{
-		if(*charset == c)
+		if(c == *charset)
 			return (1);
 		charset++;
 	}
 	return (0);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+int		get_word_count(char *str, char *charset)
 {
-	int i;
-	int size;
+	int ret;
 
-	i = 0;
-	size = ft_strlen(src);
-	while (str[i] != '\0' || (str[i] != ))
+	ret = 0;
+	while(*str)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	int		wordcount;
-	int		i;
-	int		wordlen;
-	char	**ret;
-
-	wordcount = sep_count(str, charset) + 1;
-	printf("wordcount= %d\n",wordcount);
-	ret = (char **)malloc(sizeof(char *) * (wordcount + 1));
-	ret[wordcount] = 0;
-	i = 0;
-
-	while(i < wordcount)
-	{
-		printf("%s\n",str);
-		wordlen = ft_strstr(str, charset);
-		printf("wordlen= %d, i=%d\n",wordlen,i);
-		ret[i] = (char *)malloc(sizeof(char) * (wordlen + 1));
-		printf("middle2\n");
-		// unsigned int 관련 문제가 발생할 것 같다.
-
-		ft_strcpy(ret[i], str);
-		str += (unsigned int)(wordlen + 1);
-		printf("end\n");
-		i++;
+		if(!is_sep(*str, charset))
+		{
+			ret++;
+			while(*str && !is_sep(*str, charset))
+				str++;
+		}
 	}
 	return (ret);
 }
 
-int main(){
-	char a[] = "asdf,aefb.aesrgv,aseg.br";
-	char b[] = ",.";
-	char **c;
-	c = ft_split(a,b);
-	for(int i=0;i<5;i++)
-		printf("%s \n",c[i]);
+int		len(char *str, char *charset)
+{
+	int	len;
+
+	len = 0;
+	while(str[len] && !is_sep(str[len], charset))
+		len++;
+	return (len);
+}
+
+char **ft_split(char *str, char *charset)
+{
+	int		word_count;
+	int		i;
+	int		j;
+	char	**ret;
+
+	word_count = get_word_count(str, charset);
+	ret = (char **)malloc(sizeof(char*) * (word_count + 1));
+	i = 0;
+	while(i < word_count)
+	{
+		if(!is_sep(str, charset))
+		{
+			ret[i] = (char *)malloc(sizeof(char) * (len(str, charset) + 1));
+			j = 0;
+			while(*str && !is_sep(*str, charset))
+				ret[i][j++] = *(str++);
+			ret[i][j] = 0;
+			i++;
+		}
+		str++;
+	}
+	ret[i] = 0;
+	return (ret);
 }
