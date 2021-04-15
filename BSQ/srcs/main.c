@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gshim <gshim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:13:57 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/14 13:13:57 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/15 10:44:13 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@ void bsq(char *filename)
 	t_map	*map;
 	// 파일을 읽는다.
 	buf = read_file(filename);
-	// 유효한 지도인지 판단한다.
 	map = (t_map *)malloc(sizeof(t_map*));
+	// 유효한 지도인지 판단한다+read한 파일을 map 구조체로 변환한다.
 	check_map_info(buf, map);
 	printf("y = %d, x = %d \n",map->y,map->x);
 	printf("empty = %c, wall = %c, full = %c\n",map->empty,map->wall,map->full);
-	printf("check: %d",check_validate(buf, map));
-	
-	// read한 파일을 map 구조체로 변환한다.
-
+	printf("check: %d\n",check_validate(buf, map));
 
 	// 변환한 map 구조체를 저장한다.
+	for(int i=0;i<map->y;i++)
+	{
+		for(int j=0;j<map->x;j++)
+			printf("%c ", map->graph[i][j]);
+		printf("@\n");
+	}
 
 }
 
