@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:13:57 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/15 10:44:13 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/15 11:21:56 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void bsq(char *filename)
 	printf("check: %d\n",check_validate(buf, map));
 
 	// 변환한 map 구조체를 저장한다.
-	for(int i=0;i<map->y;i++)
+	for(int i=0;i< map->y ;i++)
 	{
-		for(int j=0;j<map->x;j++)
+		for(int j=0;j< map->x ;j++)
 			printf("%c ", map->graph[i][j]);
 		printf("@\n");
 	}
 
 }
-
+  X @ g �
 
 char **arr;
 int visited[30][30];

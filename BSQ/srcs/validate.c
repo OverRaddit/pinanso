@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:58:17 by gshim             #+#    #+#             */
-/*   Updated: 2021/04/15 10:43:38 by gshim            ###   ########.fr       */
+/*   Updated: 2021/04/15 11:12:08 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int check_map_info(char *buf, t_map *map)
 		map -> y += (buf[0] - '0');
 		buf++;
 	}
-	map -> graph = (char**)malloc(sizeof(char) * (map -> y + 1));
+	map -> graph = (char**)malloc(sizeof(char*) * (map -> y + 1));
 	map -> graph[map -> y] = 0;
 	map -> empty = *buf++;
 	map -> wall = *buf++;
@@ -76,7 +76,6 @@ int check_validate(char *buf, t_map *map)
 		printf("buf[%d] = %c, len: %d, map x: %d\n",i,buf[i],len(buf + i), map -> x);
 		if(len(buf + i) != map -> x)
 			return (0);
-		printf("i = %d hello2\n",i);
 		if(!(map -> graph[i] = (char*)malloc(sizeof(char) * (map -> x + 1))))
 			return (0);
 		ft_strcpy(map -> graph[i], buf + i);
@@ -96,11 +95,15 @@ char	*ft_strcpy(char *dest, char *src)
 
 	i = 0;
 	size = len(src);
+	printf("copy start, len = %d\n",size);
 	while (i < size)
 	{
+		//printf("in while\n");
+		printf("%c ",src[i]);
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = src[i];
+	printf("\n");
+	dest[i] = '\0';
 	return (dest);
 }
