@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:26:15 by gshim             #+#    #+#             */
-/*   Updated: 2021/05/14 12:11:37 by gshim            ###   ########.fr       */
+/*   Updated: 2021/05/14 20:42:08 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (0);
 	slen = ft_strlen(s);
-	if (len >= slen)
-		len = slen;
 	if (start >= slen)
 		return (ft_strdup(""));
+	if (len >= slen - start)
+		len = slen - start;
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	i = 0;

@@ -6,20 +6,20 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 17:23:40 by gshim             #+#    #+#             */
-/*   Updated: 2021/05/14 18:29:19 by gshim            ###   ########.fr       */
+/*   Updated: 2021/05/14 19:48:29 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	recursive(long long n)
+static long long	recursive(long long n)
 {
 	if (n == 0)
 		return (0);
 	return (1 + recursive(n / 10));
 }
 
-static int	getbuf(long long n, char **ret)
+static int			getbuf(long long n, char **ret)
 {
 	int		len;
 
@@ -35,7 +35,7 @@ static int	getbuf(long long n, char **ret)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	int			len;
 	long long	number;
