@@ -6,7 +6,7 @@
 /*   By: gshim <gshim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:49:54 by gshim             #+#    #+#             */
-/*   Updated: 2021/05/14 18:07:10 by gshim            ###   ########.fr       */
+/*   Updated: 2021/05/17 16:33:57 by gshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		else
 			break ;
 	}
-	if (i >= j)
+	if (i > j)
 		return (ft_strdup(""));
 	if (!(ret = (char *)malloc(sizeof(char) * (j - i + 2))))
 		return (0);
